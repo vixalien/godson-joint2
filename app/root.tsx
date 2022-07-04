@@ -20,6 +20,7 @@ export default function App() {
       <head>
         <Meta />
         <Links />
+        <link rel="stylesheet" href="/.css/app.css" />
       </head>
       <body>
         <Outlet />
