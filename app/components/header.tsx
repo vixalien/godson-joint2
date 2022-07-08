@@ -2,7 +2,7 @@ import { useState } from "react";
 import cn from "classnames";
 
 import { Instagram, Mail, Youtube } from "~/icons/social";
-import { Menu } from "~/icons/menu";
+import { Link } from "@remix-run/react";
 
 export default function Header() {
 	const [open, setOpen] = useState(false);
@@ -18,10 +18,10 @@ export default function Header() {
 							<div className="bar btmBar"></div>
 						</div>
 					</div>
-					<div className="icon title">
+					<Link className="icon title" to={"/"} onClick={() => setOpen(false)}>
 						<img className="horizontal" src="/images/banner.webp" />
 						<img className="vertical" src="/images/banner-vertical.webp" />
-					</div>
+					</Link>
 					<div className="menu-alignment"></div>
 				</nav>
 				<ul className="menu links">
