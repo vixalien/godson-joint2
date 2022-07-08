@@ -1,15 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Ek+Mukta:200')
 
-.window {
-	position relative
-	display block
-	width 360px
-	height 567px
-	margin 100px auto 0
-	box-shadow 0 0 65px 15px rgba(0, 0, 0, 0.2)
-	overflow hidden
-	border-radius 3px
-	background #F1F1F1
+@media (max-width 600px) {
+	.header-spacer {
+		height 50px
+	}
 
 	.header {
 		position absolute
@@ -17,10 +11,10 @@
 		top 0
 		left 0
 		height 50px
-		width 100%
-		background rgba(0, 0, 0, 0.8)
+		width 100vw
+		background-color rgba(0, 0, 0, 0.8)
 		overflow hidden
-		transition all 0.5s ease-out, background 1s ease-out
+		transition height 0.5s ease-out, background-color 0.5s ease-out
 		transition-delay 0.2s
 		z-index 1
 
@@ -126,7 +120,7 @@
 		&.menu-opened {
 			height 100%
 			background-color #000
-			transition all 0.3s ease-in, background 0.5s ease-in
+			transition all 0.3s ease-in, background-color 0.5s ease-in
 
 			.burger-container {
 				transform rotate(90deg)
