@@ -1,3 +1,4 @@
+import { LinksFunction } from "@remix-run/node";
 import Header from "~/components/header";
 
 export default function Index() {

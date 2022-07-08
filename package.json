@@ -5,7 +5,7 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "css": "stylus stylus/* -o public/.css"
+    "css": "stylus stylus/* -o public/css"
   },
   "dependencies": {
     "@remix-run/node": "^1.6.3",

@@ -3,5 +3,5 @@ node_modules
 /.cache
 /build
 /public/build
-/public/.css
+/public/css
 .env
