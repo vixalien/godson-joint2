@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap')
+
+.welcome {
+  display flex
+  flex-direction column
+  width 100vw
+  text-align center
+
+  h1 {
+    font-family 'Montserrat'
+    font-size @css { clamp(50px, 12vw, 120px) }
+    font-weight 900
+    line-height 1.07
+    margin-bottom 10px
+
+    .accented {
+      color #a06a0e
+    }
+  }
+
+  .text {
+    font-size @css { clamp(20px, 4vw, 30px) }
+  }
+}
