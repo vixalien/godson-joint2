@@ -1,0 +1,21 @@
+bg = #765b2d
+bg-hover = #352409
+
+.button {
+  text-decoration none
+  color #fff
+  background-color bg
+  padding 10px 20px
+  border-radius 10px
+  font-weight bold
+  transition .3s box-shadow, .3s background-color
+
+  &:hover {
+    background-color bg-hover
+    box-shadow 0 0 5px 2px alpha(bg, 50%)
+  }
+
+  & + & {
+    margin-left 10px
+  }
+}
