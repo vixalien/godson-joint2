@@ -2,13 +2,16 @@ import { LinksFunction } from "@remix-run/node";
 import Header from "~/components/header";
 import Button from "~/components/button";
 
+import { staticMedia } from "~/lib/media";
+import { MediaCard } from "~/components/grid";
+
 export const links: LinksFunction = () => {
 	return [
 		{ rel: "stylesheet", href: "/css/pages/home.css" }
 	]
 }
 
-const HomeScreen = () => {
+const Welcome = () => {
 	return <div className="welcome">
 		<h1>
 			<div>Ni</div>
@@ -25,12 +28,19 @@ const HomeScreen = () => {
 	</div>
 }
 
+const LatestWork = () => {
+	return <div className="latest-work">
+		<MediaCard media={staticMedia[staticMedia.length - 1]} />
+	</div>
+}
+
 export default function Index() {
 	return (
 		<>
 			<Header />
 			<main>
-				<HomeScreen />
+				<Welcome />
+				<LatestWork />
 			</main>
 		</>
 	);
