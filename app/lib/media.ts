@@ -87,3 +87,9 @@ export const staticMedia: Media[] = [
     category: "2d",
   },
 ]
+
+export const getImageURL = (media: Media) => {
+  return media.media_type === "image" ?
+    media.src || `/data/images/${media.id}.${media.ext || "jpg"}` :
+    `/data/thumbnails/${media.id}.png`;
+}

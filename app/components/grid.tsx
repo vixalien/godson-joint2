@@ -1,15 +1,13 @@
-import { Media, CategoryMap } from "~/lib/media"
+import { Media, CategoryMap, getImageURL } from "~/lib/media"
 import { Play } from "~/icons/media";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 export const MediaCard = ({ media }: { media: Media }) => {
-  const src = media.media_type === "image" ?
-    media.src || `/data/images/${media.id}.${media.ext || "jpg"}` :
-    `/data/thumbnails/${media.id}.png`;
   return <div className="card">
     <Link className="thumbnail" to={`/portfolio/${media.id}`}>
-      <img className="image" src={src} />
-      <div className="play-icon">
+      <img className="image" src={getImageURL(media)} />
+      <div className={classNames("play-icon", { visible: media.media_type === "video" })}>
         <Play />
       </div>
     </Link>

@@ -1,5 +1,4 @@
 import { LinksFunction } from "@remix-run/node";
-import Header from "~/components/header";
 import Button from "~/components/button";
 
 import { staticMedia } from "~/lib/media";
@@ -38,11 +37,8 @@ const LatestWork = () => {
 export default function Index() {
 	return (
 		<>
-			<Header />
-			<main>
-				<Welcome />
-				<LatestWork />
-			</main>
+			<Welcome />
+			<LatestWork />
 		</>
 	);
 }
