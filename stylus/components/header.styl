@@ -85,6 +85,10 @@
 
 				img {
 					height 100%
+
+					&.vertical {
+						display none
+					}
 				}
 			}
 
@@ -190,6 +194,91 @@
 
 			.icon.icon-bag {
 				transform translateX(75px)
+			}
+		}
+	}
+}
+
+@media screen and (min-width 601px) {
+	body {
+		display flex
+		flex-direction row
+	}
+
+	.header {
+		max-width 60px
+		padding 15px
+		background-color black
+		height 100vh
+		display flex
+		flex-direction column
+		justify-content space-between
+	}
+
+	nav {
+		display flex
+		flex-direction column
+
+		.burger-container, .menu-alignment {
+			display none
+		}
+
+		.icon.title {
+			img {
+				width 100%
+				transform scale(2.5) rotate(180deg)
+				margin-block 50px
+
+				&.horizontal {
+					display none
+				}
+			}
+		}
+	}
+
+	ul.menu {
+		a {
+			text-decoration none
+			color #818181
+			transition 0.3s color
+
+			&:hover {
+				color #fff
+			}
+		}
+
+		&.links {
+			list-style none
+			padding 0
+			display flex
+			flex-direction row-reverse
+			gap 50px
+			margin auto
+			text-transform uppercase
+			font-size 14px
+			align-items baseline
+			writing-mode vertical-rl
+			text-orientation mixed
+			transform rotate(180deg)
+		}
+
+		&.icons {
+			padding 0
+			color #fff
+			margin 0 auto
+			list-style none
+			display flex
+			flex-direction column
+			gap 20px
+
+			a {
+				color #a06a0e
+				transition 0.3s color
+				font-size 26px
+
+				&:hover {
+					color #fff
+				}
 			}
 		}
 	}

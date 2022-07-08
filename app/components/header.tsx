@@ -19,11 +19,12 @@ export default function Header() {
 						</div>
 					</div>
 					<div className="icon title">
-						<img src="/images/banner.webp" />
+						<img className="horizontal" src="/images/banner.webp" />
+						<img className="vertical" src="/images/banner-vertical.webp" />
 					</div>
 					<div className="menu-alignment"></div>
 				</nav>
-				<ul className="menu">
+				<ul className="menu links">
 					<li className="menu-item">
 						<a href="/portfolio">Portfolio</a>
 					</li>
