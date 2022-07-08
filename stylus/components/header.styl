@@ -127,14 +127,12 @@
 			height 100%
 			background-color #000
 			transition all 0.3s ease-in, background 0.5s ease-in
-			transition-delay 0.25s
 
 			.burger-container {
 				transform rotate(90deg)
 
 				#burger .bar {
-					transition all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-					transition-delay 0.2s
+					transition all cubic-bezier(0.4, 0.01, 0.165, 0.99)
 
 					&.topBar {
 						transform translateY(4px) rotate(45deg)
@@ -152,14 +150,13 @@
 
 				for child in 1 .. 7 {
 					&:nth-child({child}) {
-						transition-delay 0.2s + (child * 0.07s)
+						transition-delay (child - 1) * 0.07s
 					}
 				}
 			}
 
 			.icon.icon-bag {
 				transform translateX(75px)
-				transition-delay 0.3s
 			}
 		}
 	}
