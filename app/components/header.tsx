@@ -11,21 +11,45 @@ export default function Header() {
 	return (
 		<>
 			<div className={cn(["header", { "menu-opened": open }])}>
-				<div className="burger-container" onClick={toggle}>
-					<div id="burger">
-						<div className="bar topBar"></div>
-						<div className="bar btmBar"></div>
+				<nav className="nav">
+					<div className="burger-container" onClick={toggle}>
+						<div id="burger">
+							<div className="bar topBar"></div>
+							<div className="bar btmBar"></div>
+						</div>
 					</div>
-				</div>
-				<div className="icon icon-apple"></div>
+					<div className="icon title">
+						<img src="/images/banner.webp" />
+					</div>
+					<div className="menu-alignment"></div>
+				</nav>
 				<ul className="menu">
-					<li className="menu-item"><a href="#">Mac</a></li>
-					<li className="menu-item"><a href="#">iPad</a></li>
-					<li className="menu-item"><a href="#">iPhone</a></li>
-					<li className="menu-item"><a href="#">Watch</a></li>
-					<li className="menu-item"><a href="#">TV</a></li>
-					<li className="menu-item"><a href="#">Music</a></li>
-					<li className="menu-item"><a href="#">Support</a></li>
+					<li className="menu-item">
+						<a href="/portfolio">Portfolio</a>
+					</li>
+					<li className="menu-item">
+						<a href="/about">About</a>
+					</li>
+					<li className="menu-item">
+						<a href="/contact">Contact</a>
+					</li>
+				</ul>
+				<ul className="menu icons">
+					<li className="menu-item">
+						<a href="https://instagram.com/godsonjoint" target="_blank">
+							<Instagram />
+						</a>
+					</li>
+					<li className="menu-item">
+						<a href="https://www.youtube.com/channel/UCKEry4n_ics0nQD8j1i2IgQ" target="_blank">
+							<Youtube />
+						</a>
+					</li>
+					<li className="menu-item">
+						<a href="mailto:godsonjoint@gmail.com" target="_blank">
+							<Mail />
+						</a>
+					</li>
 				</ul>
 			</div>
 			<div className="header-spacer" />

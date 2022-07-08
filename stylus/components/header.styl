@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Ek+Mukta:200')
-
 @media (max-width 600px) {
 	.header-spacer {
 		height 50px
@@ -12,75 +10,96 @@
 		left 0
 		height 50px
 		width 100vw
-		background-color rgba(0, 0, 0, 0.8)
+		background-color #000
 		overflow hidden
 		transition height 0.5s ease-out, background-color 0.5s ease-out
 		transition-delay 0.2s
 		z-index 1
+		display flex
+		flex-direction column
 
-		.burger-container {
-			position relative
-			display inline-block
-			height 50px
-			width 50px
-			cursor pointer
-			transform rotate(0deg)
-			transition all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-			-webkit-user-select none
-			-moz-user-select none
-			-ms-user-select none
-			user-select none
-			-webkit-tap-highlight-color transparent
+		nav {
+			display flex
+			justify-content space-between
+			z-index 3
+			transition 0.3s margin-bottom
 
-			#burger {
-				width 18px
-				height 8px
+			.burger-container {
 				position relative
-				display block
-				margin -4px auto 0
-				top 50%
+				display inline-block
+				height 50px
+				width 50px
+				cursor pointer
+				transform rotate(0deg)
+				transition all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
+				-webkit-user-select none
+				-moz-user-select none
+				-ms-user-select none
+				user-select none
+				-webkit-tap-highlight-color transparent
 
-				.bar {
-					width 100%
-					height 1px
-					display block
+				#burger {
+					width 18px
+					height 8px
 					position relative
-					background #FFF
-					transition all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-					transition-delay 0s
-				}
+					display block
+					margin -4px auto 0
+					top 50%
 
-				.bar.topBar {
-					transform translateY(0px) rotate(0deg)
-				}
+					.bar {
+						width 100%
+						height 1px
+						display block
+						position relative
+						background #FFF
+						transition all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99)
+						transition-delay 0s
+					}
 
-				.bar.btmBar {
-					transform translateY(6px) rotate(0deg)
+					.bar.topBar {
+						transform translateY(0px) rotate(0deg)
+					}
+
+					.bar.btmBar {
+						transform translateY(6px) rotate(0deg)
+					}
 				}
 			}
-		}
 
-		.icon {
-			display inline-block
-			position absolute
-			height 100%
-			line-height 50px
-			width 50px
-			height 50px
-			text-align center
-			color #FFF
-			font-size 22px
-			left 50%
-			transform translateX(-50%)
-		}
+			.icon {
+				height 100%
+				line-height 50px
+				width 50px
+				height 50px
+				text-align center
+				color #FFF
+				font-size 22px
+				left 50%
+				// transform translateX(-50%)
+			}
 
-		.icon.icon-bag {
-			right 0
-			top 0
-			left auto
-			transform translateX(0px)
-			transition transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
-			transition-delay 0.65s
+			.icon.title {
+				width 100px
+				transform scale(1) translateY(0px)
+				transition 0.3s transform
+
+				img {
+					height 100%
+				}
+			}
+
+			.icon.icon-bag {
+				right 0
+				top 0
+				left auto
+				transform translateX(0px)
+				transition transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99)
+				transition-delay 0.65s
+			}
+
+			.menu-alignment {
+				width 50px
+			}
 		}
 
 		ul.menu {
@@ -88,31 +107,42 @@
 			display block
 			padding 0px 48px 0
 			list-style none
+			margin auto 0
+			text-align center
+			text-transform uppercase
+			font-weight bold
+			color #fff
 
 			li.menu-item {
-				border-bottom 1px solid #333
 				margin-top 5px
 				transform scale(1.15) translateY(-30px)
 				opacity 0
 				transition transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99)
 
-				for child in 1 .. 7 {
+				for child in 1 .. 3 {
 					&:nth-child({child}) {
-						transition-delay 0.07s * child
+						transition-delay 0.07s * (child - 1)
 					}
 				}
 
 				a {
 					display block
 					position relative
-					color #FFF
-					font-family 'Ek Mukta', sans-serif
-					font-weight 100
+					color inherit
+					font-family inherit
 					text-decoration none
 					font-size 22px
 					line-height 2.35
-					font-weight 200
 					width 100%
+				}
+			}
+
+			&.icons {
+				color #a06a0e
+
+				li.menu-item a {
+					font-size 32px
+					line-height 1.85
 				}
 			}
 		}
@@ -122,19 +152,28 @@
 			background-color #000
 			transition all 0.3s ease-in, background-color 0.5s ease-in
 
-			.burger-container {
-				transform rotate(90deg)
+			nav {
+				margin-bottom 100px
 
-				#burger .bar {
-					transition all cubic-bezier(0.4, 0.01, 0.165, 0.99)
+				.burger-container {
+					transform rotate(90deg)
 
-					&.topBar {
-						transform translateY(4px) rotate(45deg)
+					#burger .bar {
+						transition all cubic-bezier(0.4, 0.01, 0.165, 0.99)
+
+						&.topBar {
+							transform translateY(4px) rotate(45deg)
+						}
+
+						&.btmBar {
+							transform translateY(3px) rotate(-45deg)
+						}
 					}
+				}
 
-					&.btmBar {
-						transform translateY(3px) rotate(-45deg)
-					}
+				.icon.title {
+					transform scale(2) translateY(20px)
+					transition 0.3s transform 0.2s
 				}
 			}
 
@@ -142,9 +181,9 @@
 				transform scale(1) translateY(0px)
 				opacity 1
 
-				for child in 1 .. 7 {
+				for child in 1 .. 3 {
 					&:nth-child({child}) {
-						transition-delay (child - 1) * 0.07s
+						transition-delay 0.2s + (child - 1) * 0.07s
 					}
 				}
 			}
