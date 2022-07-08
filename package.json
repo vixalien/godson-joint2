@@ -5,7 +5,10 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "css": "stylus stylus/* -o public/css"
+    "css:main": "stylus ./stylus -o public/css",
+    "css:pages": "stylus ./stylus/pages -o public/css/pages",
+    "css": "yarn css:main && yarn css:pages",
+    "prebuild": "yarn css"
   },
   "dependencies": {
     "@remix-run/node": "^1.6.3",
