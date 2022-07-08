@@ -3,7 +3,7 @@ export const CategoryMap = new Map([
   ["visualizer", "Visualizer"],
   ["teaser", "Teaser"],
   ["lyric-video", "Lyric Video"],
-  ["story", "Original Story"],
+  ["2d", "2D Short Film"],
   ["other", "Other Art"]
 ])
 
@@ -14,7 +14,7 @@ export interface Media {
 	description?: string;
 	media_type: "video" | "image";
 	credits: Record<string, string>;
-	category: "cover_art" | "visualizer" | "teaser" | "lyric-video" | "story" | "other";
+	category: "cover_art" | "visualizer" | "teaser" | "lyric-video" | "2d" | "other";
 	src?: string;
   ext?: string;
 }
@@ -78,8 +78,12 @@ export const staticMedia: Media[] = [
     id: "bakame",
     name: "Bakame n'Impyisi",
     client: "Godson Joint",
-    media_type: "image",
-    credits: BaseCredits,
-    category: "story",
+    media_type: "video",
+    credits: {
+      "Director": "Mr Bakame",
+      "Animator": "Iradukunda Yves",
+      "Voice over": "Yannick MYK"
+    },
+    category: "2d",
   },
 ]

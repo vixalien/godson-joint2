@@ -3,7 +3,6 @@
 .welcome {
   display flex
   flex-direction column
-  width 100vw
   text-align center
 
   h1 {
@@ -22,3 +21,17 @@
     font-size @css { clamp(20px, 4vw, 30px) }
   }
 }
+
+@supports not (margin-block 10vmax) {
+  .latest-work {
+    margin-block 100px
+  }
+}
+
+@supports (margin-block 10vmax) {
+  .latest-work {
+    margin-block 10vmax
+    text-align center
+  }
+}
+

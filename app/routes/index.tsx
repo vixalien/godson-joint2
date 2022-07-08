@@ -19,7 +19,7 @@ const Welcome = () => {
 			<div>Client!</div>
 		</h1>
 		<p className="text">
-			We do everything you want
+			We animate everything you want
 		</p>
 		<p>
 			<Button className="main" href="/portfolio">Portfolio</Button>
@@ -30,6 +30,7 @@ const Welcome = () => {
 
 const LatestWork = () => {
 	return <div className="latest-work">
+		<h2>Latest Work</h2>
 		<MediaCard media={staticMedia[staticMedia.length - 1]} />
 	</div>
 }

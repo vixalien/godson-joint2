@@ -1,10 +1,17 @@
+main {
+	flex 1
+	flex-direction column
+	height auto
+	overflow-y auto
+}
+
 @media (max-width 600px) {
 	.header-spacer {
 		height 50px
 	}
 
 	.header {
-		position absolute
+		position fixed
 		display block
 		top 0
 		left 0
@@ -155,6 +162,7 @@
 			height 100%
 			background-color #000
 			transition all 0.3s ease-in, background-color 0.5s ease-in
+			overflow auto
 
 			nav {
 				margin-bottom 100px
@@ -206,13 +214,12 @@
 	}
 
 	main {
-		flex 1
 		width 10px
 		max-width 100%
 	}
 
 	.header {
-		max-width 60px
+		width 60px
 		padding 15px
 		background-color black
 		height 100vh

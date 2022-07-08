@@ -1,0 +1,29 @@
+.card {
+  max-width 100%
+  text-align center
+
+  .thumbnail {
+    max-width 100%
+    margin-bottom 10px
+    border-radius 10px
+    position relative
+    display block
+    cursor pointer
+
+    img.image {
+      max-width 100%
+      border-radius 10px
+      filter brightness(50%)
+    }
+
+    div.play-icon {
+      top 50%
+      left 50%
+      position absolute
+      color #fff
+      font-size clamp(40px, 18vw, 100px)
+      transform translate(-50%, -50%)
+      filter drop-shadow(5px 5px 10px rgba(0,0,0,0.4))
+    }
+  }
+}
