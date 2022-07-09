@@ -3,7 +3,7 @@ import Button from "~/components/button";
 
 import { staticMedia } from "~/lib/media";
 import { MediaCard } from "~/components/grid";
-import { Fragment } from "react";
+import Font from "~/components/font";
 
 export const links: LinksFunction = () => {
 	return [
@@ -14,19 +14,7 @@ export const links: LinksFunction = () => {
 export const handle = {
 	suffix: (
 		<>
-			<div dangerouslySetInnerHTML={{
-				__html: `<link
-rel="stylesheet"
-media="none"
-href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap"
-onload="if(media!='all')media='all'"
-/>`}} />
-			<noscript>
-				<link
-					rel="stylesheet"
-					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap"
-				/>
-			</noscript>
+			<Font/>
 		</>
 	),
 };
