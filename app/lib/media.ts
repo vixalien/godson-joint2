@@ -71,7 +71,7 @@ export const staticMedia: Media[] = [
   {
     id: "hide-yo-wallet",
     name: "Hide yo Wallet",
-    client: "Getts Kent",
+    client: "Yvan Le Chercheur",
     media_type: "video",
     credits: { "Art Director": "Mr. Bakame" },
     category: "teaser",
