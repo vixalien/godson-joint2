@@ -26,13 +26,13 @@ export default function Header() {
 				</nav>
 				<ul className="menu links">
 					<li className="menu-item">
-						<Link to="/portfolio">Portfolio</Link>
+						<Link to="/portfolio" onClick={() => setOpen(false)}>Portfolio</Link>
 					</li>
 					<li className="menu-item">
-						<Link to="/about">About</Link>
+						<Link to="/about" onClick={() => setOpen(false)}>About</Link>
 					</li>
 					<li className="menu-item">
-						<Link to="/contact">Contact</Link>
+						<Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
 					</li>
 				</ul>
 				<ul className="menu icons">
