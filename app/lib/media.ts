@@ -73,18 +73,11 @@ export const staticMedia: Media[] = [
 		category: "teaser",
 	},
 	{
-		id: "celebrate",
-		name: "Celebrate",
-		client: "Getts Kent",
-		media_type: "video",
-		credits: BaseCredits,
-		category: "lyric-video",
-	},
-	{
 		id: "bakame",
 		name: "Bakame n'Impyisi",
 		client: "Godson Joint",
 		media_type: "video",
+		description: "A friend turns into a foe in this modernized folk tale.",
 		credits: {
 			"Director": "Mr Bakame",
 			"Animator": "Iradukunda Yves",
