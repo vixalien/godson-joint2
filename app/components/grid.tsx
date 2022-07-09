@@ -7,7 +7,7 @@ export const MediaCard = ({ media, className }: { media: Media, className?: stri
 	return (
 		<div className={cn("card", className)}>
 			<Link className={cn("thumbnail", { video: media.media_type === "video" })} to={`/portfolio/${media.id}`}>
-				<img className="image" src={getImageURL(media)} />
+				<img className="image" src={getImageURL(media)} width={media.meta?.width} height={media.meta?.height} />
 				<div
 					className="play-icon"
 				>

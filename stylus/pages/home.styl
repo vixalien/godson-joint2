@@ -21,19 +21,28 @@
   }
 }
 
-@supports not (margin-block 10vmax) {
-  .latest-work {
-    margin-block 100px
+.latest-work {
+  text-align center
 
-    .thumbnail .play-icon {
+  .thumbnail {
+    img, video {
+      height auto
+    }
+
+    .play-icon {
       font-size clamp(40px, 18vw, 100px)
     }
   }
-}
 
-@supports (margin-block 10vmax) {
-  .latest-work {
-    margin-block 10vmax
-    text-align center
+  @supports not (margin-block 10vmax) {
+    & {
+      margin-block 100px
+    }
+  }
+
+  @supports (margin-block 10vmax) {
+    & {
+      margin-block 10vmax
+    }
   }
 }
