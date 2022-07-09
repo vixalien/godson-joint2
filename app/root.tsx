@@ -1,4 +1,4 @@
-import { useMemo, useEffect, Fragment } from "react";
+import { Fragment, useEffect, useMemo } from "react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
 	Links,
@@ -7,9 +7,9 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
-	useTransition,
 	useFetchers,
 	useMatches,
+	useTransition,
 } from "@remix-run/react";
 
 import NProgress from "nprogress";
@@ -31,7 +31,9 @@ export const links: LinksFunction = () => {
 	];
 };
 
-const Page = ({ children, links, suffix }: { children: any, links?: any, suffix?: any[] }) => {
+const Page = (
+	{ children, links, suffix }: { children: any; links?: any; suffix?: any[] },
+) => {
 	return (
 		<html lang="en">
 			<head>
@@ -50,15 +52,15 @@ const Page = ({ children, links, suffix }: { children: any, links?: any, suffix?
 				{suffix?.map((item, id) => <Fragment key={id}>{item}</Fragment>)}
 			</body>
 		</html>
-	)
-}
+	);
+};
 
 export default function App() {
 	const matches = useMatches();
 
 	const links = matches.reduce((prev: any[], curr) => {
-		return curr?.handle?.suffix ? [...prev, curr.handle?.suffix] : prev
-	}, [])
+		return curr?.handle?.suffix ? [...prev, curr.handle?.suffix] : prev;
+	}, []);
 
 	let transition = useTransition();
 
@@ -79,12 +81,12 @@ export default function App() {
 			if (states.every((state) => state === "idle")) return "idle";
 			return "loading";
 		},
-		[transition.state, fetchers]
+		[transition.state, fetchers],
 	);
 
 	NProgress.configure({
-		showSpinner: false
-	})
+		showSpinner: false,
+	});
 
 	useEffect(() => {
 		// and when it's something else it means it's either submitting a form or
@@ -93,7 +95,6 @@ export default function App() {
 		// when the state is idle then we can to complete the progress bar
 		if (state === "idle") NProgress.done();
 	}, [transition.state]);
-
 
 	return (
 		<Page

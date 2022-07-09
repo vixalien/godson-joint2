@@ -42,7 +42,10 @@ export default function Header() {
 						</a>
 					</li>
 					<li className="menu-item">
-						<a href="https://www.youtube.com/channel/UCKEry4n_ics0nQD8j1i2IgQ" target="_blank">
+						<a
+							href="https://www.youtube.com/channel/UCKEry4n_ics0nQD8j1i2IgQ"
+							target="_blank"
+						>
 							<Youtube />
 						</a>
 					</li>
