@@ -1,8 +1,8 @@
 import { useState } from "react";
+import { Link } from "@remix-run/react";
 import cn from "classnames";
 
 import { Instagram, Mail, Youtube } from "~/icons/social";
-import { Link } from "@remix-run/react";
 
 export default function Header() {
 	const [open, setOpen] = useState(false);
@@ -26,13 +26,13 @@ export default function Header() {
 				</nav>
 				<ul className="menu links">
 					<li className="menu-item">
-						<a href="/portfolio">Portfolio</a>
+						<Link to="/portfolio">Portfolio</Link>
 					</li>
 					<li className="menu-item">
-						<a href="/about">About</a>
+						<Link to="/about">About</Link>
 					</li>
 					<li className="menu-item">
-						<a href="/contact">Contact</a>
+						<Link to="/contact">Contact</Link>
 					</li>
 				</ul>
 				<ul className="menu icons">
