@@ -18,9 +18,9 @@ export default function Header() {
               <div className="bar btmBar"></div>
             </div>
           </div>
-          <Link className="icon title" to={"/"} onClick={() => setOpen(false)}>
-            <img className="horizontal" src="/images/banner.webp" />
-            <img className="vertical" src="/images/banner-vertical.webp" />
+          <Link className="icon title" to={"/"} onClick={() => setOpen(false)} aria-label="Go to Godson Joint's homepage">
+            <img className="horizontal" src="/images/banner.webp" alt="Godson Joint Logo" />
+            <img className="vertical" src="/images/banner-vertical.webp" alt="Horizontal Godson Joint Logo" />
           </Link>
           <div className="menu-alignment"></div>
         </nav>
@@ -39,7 +39,7 @@ export default function Header() {
         </ul>
         <ul className="menu icons">
           <li className="menu-item">
-            <a href="https://instagram.com/godsonjoint" target="_blank">
+            <a href="https://instagram.com/godsonjoint" target="_blank" aria-label="Godson Joint's Instagram">
               <Instagram />
             </a>
           </li>
@@ -47,12 +47,13 @@ export default function Header() {
             <a
               href="https://www.youtube.com/channel/UCKEry4n_ics0nQD8j1i2IgQ"
               target="_blank"
+							aria-label="Godson Joint's Youtube"
             >
               <Youtube />
             </a>
           </li>
           <li className="menu-item">
-            <a href="mailto:godsonjoint@gmail.com" target="_blank">
+            <a href="mailto:godsonjoint@gmail.com" target="_blank" aria-label="Email Godson Joint">
               <Mail />
             </a>
           </li>
