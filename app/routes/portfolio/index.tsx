@@ -1,8 +1,10 @@
-import { MetaFunction } from "@remix-run/node";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 
 import { staticMedia } from "~/lib/media";
 
 import { MediaCard, Grid } from "~/components/grid";
+import Font from "~/components/font";
+import Button from "~/components/button";
 
 const reversed = staticMedia.reverse();
 
@@ -12,12 +14,39 @@ export const meta: MetaFunction = () => {
   }
 }
 
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet", href: "/css/pages/portfolio.css"
+    }
+  ]
+}
+
+export const handle = {
+  suffix: (
+    <>
+      <Font />
+    </>
+  ),
+};
+
 const Portfolio = () => {
-  return (<div>
+  return (<div className="portfolio">
     <h1>Portfolio</h1>
+    <h2>See some of our exclusive creations.</h2>
     <Grid items={reversed.map((media, index) => {
-      return <MediaCard media={media} className={index===0?"latest-work":undefined}/>
-    })}/>
+      return <MediaCard key={media.id} media={media} className={index === 0 ? "latest-work" : undefined} />
+    })} />
+    <div className="footer">
+      <p>
+        Are you interested in a bespoke animation or artwork?
+      </p>
+      <p>
+        <Button href="/contact">
+          Contact Us
+        </Button>
+      </p>
+    </div>
   </div>)
 }
 
