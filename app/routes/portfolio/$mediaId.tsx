@@ -1,4 +1,4 @@
-import { LinksFunction, LoaderFunction } from "@remix-run/node";
+import { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
 import { CategoryMap, getImageURL, Media, staticMedia } from "~/lib/media";
@@ -21,13 +21,29 @@ export const links: LinksFunction = () => {
 	}];
 };
 
+export const meta: MetaFunction = ({ data }: { data: Media }) => {
+	const title = getMediaTitle(data);
+	const image = getImageURL(data);
+	return {
+		title: getMediaTitle(data),
+		description: data.description,
+		"og:title": title,
+		"og:description": data.description,
+		"og:image": image,
+		"twitter:title": title,
+		"twitter:description": data.description,
+		"twitter:image": image,
+		"twitter:card": image ? "summary_large_image" : undefined,
+	}
+}
+
 export default function Invoice() {
 	const media = useLoaderData<Media>();
 
 	return (
 		<>
 			<Link className="portfolio-link" to="/portfolio">&larr; Portfolio</Link>
-			<h1>{media.name} - {CategoryMap.get(media.category)}</h1>
+			<h1>{getMediaTitle(media)}</h1>
 			{media.media_type === "image" ? <img src={getImageURL(media)} /> : (
 				<>
 					<Video media={media} />
@@ -42,6 +58,10 @@ export default function Invoice() {
 			</div>
 		</>
 	);
+}
+
+const getMediaTitle = (media: Media) => {
+	return `${media.name} - ${CategoryMap.get(media.category)}`;
 }
 
 const getVideoURL = (media: Media) => {
