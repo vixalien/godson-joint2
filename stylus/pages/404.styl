@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap')
-
 main {
   justify-content center
   align-items center
-  height 100vh!important
+  height 100vh !important
 }
 
 h1 {
@@ -12,5 +10,16 @@ h1 {
   margin 0
   font-weight 900
   color #a06a0e
-  font-family 'Montserrat'
+  font-family serif
+
+  span {
+    display inline-block
+    transition 0.3s color, 2s transform
+    transform rotate(0deg)
+
+    &:hover {
+      color #1c4264
+      transform rotate(359.99deg)
+    }
+  }
 }
