@@ -15,7 +15,8 @@ export const MediaCard = ({ media, className }: { media: Media, className?: stri
 				</div>
 			</Link>
 			<div className="title">
-				{media.name} - {CategoryMap.get(media.category || "Art")}
+				<div className="main-title">{media.name}</div>
+				<div className="client">{media.client}</div>
 			</div>
 		</div>
 	);

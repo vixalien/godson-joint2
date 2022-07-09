@@ -145,7 +145,7 @@ export const getImageURL = (media: Media) => {
 };
 
 export const getMediaTitle = (media: Media) => {
-	return `${media.name} - ${CategoryMap.get(media.category)}`;
+	return `${media.name} - ${media.client}`;
 }
 
 export const getVideoURL = (media: Media) => {
