@@ -1,4 +1,4 @@
-import { LinksFunction } from "@remix-run/node";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 import Button from "~/components/button";
 
 import { staticMedia } from "~/lib/media";
@@ -9,6 +9,14 @@ export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: "/css/pages/home.css" },
   ];
+};
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "Godson Joint",
+    description:
+      `The go-to animation studio in the music industry. We visualize the lyrics and mood of the song`,
+  };
 };
 
 export const handle = {
