@@ -24,21 +24,21 @@ export default function Invoice() {
   const media = useLoaderData<Media>();
 
   return <>
-    <Link to="/portfolio">&larr; Back</Link>
+    <Link className="portfolio-link" to="/portfolio">&larr; Portfolio</Link>
     <h1>{media.name} - {CategoryMap.get(media.category)}</h1>
     {media.media_type === "image" ?
       <img src={getImageURL(media)} /> :
       <>
         <Video media={media} />
-        <p className="metadata">
-          {media.description}
-        </p>
-        <div className="credits">
-          <h3>Credits</h3>
-          <Keymap object={media.credits} />
-        </div>
       </>
     }
+    <p className="metadata">
+      {media.description}
+    </p>
+    <div className="credits">
+      <h3>Credits</h3>
+      <Keymap object={media.credits} />
+    </div>
   </>
 }
 

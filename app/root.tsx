@@ -15,6 +15,7 @@ import NProgress from "nprogress";
 import nProgressStyles from "../public/nprogress/nprogress.css";
 
 import Header from "~/components/header";
+import { NotFound } from "./components/404";
 
 export const meta: MetaFunction = () => ({
 	charset: "utf-8",
@@ -28,6 +29,27 @@ export const links: LinksFunction = () => {
 		{ rel: "stylesheet", href: "/css/app.css" },
 	];
 };
+
+const Page = ({ children, links }: { children: any, links?: any }) => {
+	return (
+		<html lang="en">
+			<head>
+				<Meta />
+				{links}
+				<Links />
+			</head>
+			<body>
+				<Header />
+				<main>
+					{children}
+				</main>
+				<ScrollRestoration />
+				<Scripts />
+				<LiveReload />
+			</body>
+		</html>
+	)
+}
 
 export default function App() {
 	let transition = useTransition();
@@ -66,20 +88,16 @@ export default function App() {
 
 
 	return (
-		<html lang="en">
-			<head>
-				<Meta />
-				<Links />
-			</head>
-			<body>
-				<Header />
-				<main>
-					<Outlet />
-				</main>
-				<ScrollRestoration />
-				<Scripts />
-				<LiveReload />
-			</body>
-		</html>
+		<Page><Outlet /></Page>
+	);
+}
+
+export function CatchBoundary() {
+	return (
+		<Page
+			links={<link rel="stylesheet" href="/css/pages/404.css" />}
+		>
+			<NotFound/>
+		</Page>
 	);
 }
