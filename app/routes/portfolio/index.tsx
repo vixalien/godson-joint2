@@ -9,6 +9,7 @@ import Button from "~/components/button";
 export const meta: MetaFunction = () => {
   return {
     title: "Portfolio - Godson Joint",
+    description: "See artworks made at Godson Joint"
   };
 };
 

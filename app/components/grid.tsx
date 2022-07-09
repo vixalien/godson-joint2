@@ -1,4 +1,4 @@
-import { CategoryMap, getImageURL, Media } from "~/lib/media";
+import { CategoryMap, getImageURL, getMediaTitle, Media } from "~/lib/media";
 import { Play } from "~/icons/media";
 import { Link } from "react-router-dom";
 import cn from "classnames";
@@ -11,6 +11,7 @@ export const MediaCard = (
       <Link
         className={cn("thumbnail", { video: media.media_type === "video" })}
         to={`/portfolio/${media.id}`}
+				aria-label={getMediaTitle(media)}
       >
         <img
           className="image"
