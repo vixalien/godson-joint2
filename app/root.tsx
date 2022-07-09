@@ -106,6 +106,7 @@ export default function App() {
 }
 
 export function CatchBoundary() {
+	NProgress.done();
 	return (
 		<Page
 			links={<link rel="stylesheet" href="/css/pages/404.css" />}
