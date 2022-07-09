@@ -1,7 +1,7 @@
 import { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
-import { CategoryMap, getImageURL, Media, staticMedia } from "~/lib/media";
+import { CategoryMap, getImageURL, getMediaTitle, getVideoURL, Media, MediaTypeMap, staticMedia } from "~/lib/media";
 
 export const loader: LoaderFunction = ({ params }) => {
 	const id = params.mediaId;
@@ -44,36 +44,37 @@ export default function Invoice() {
 		<>
 			<Link className="portfolio-link" to="/portfolio">&larr; Portfolio</Link>
 			<h1>{getMediaTitle(media)}</h1>
-			{media.media_type === "image" ? <img src={getImageURL(media)} /> : (
-				<>
-					<Video media={media} />
-				</>
-			)}
-			<p className="metadata">
-				{media.description}
-			</p>
-			<div className="credits">
-				<h3>Credits</h3>
-				<Keymap object={media.credits} />
+			<div className="media">
+				{media.media_type === "image" ? <div className="image">
+					<img src={getImageURL(media)} width={media.meta?.width} height={media.meta?.height} />
+				</div> : (
+					<>
+						<Video media={media} />
+					</>
+				)}
 			</div>
+			{media.description ? <p className="description">
+				{media.description}
+			</p> : null}
+			<Keymap
+				title="Info"
+				object={{
+					"Client": media.client,
+					"Category": CategoryMap.get(media.category) || "Other",
+					"Media Type": MediaTypeMap.get(media.media_type)
+				}} />
+			<Keymap
+				title="Credits"
+				object={media.credits}
+			/>
 		</>
 	);
 }
 
-const getMediaTitle = (media: Media) => {
-	return `${media.name} - ${CategoryMap.get(media.category)}`;
-}
-
-const getVideoURL = (media: Media) => {
-	return media.src || `/data/videos/${media.id}.${media.ext || "mp4"}`;
-};
-
 const Video = ({ media }: { media: Media }) => {
-	// this is a custom component that renders a video and controls
-	// it's playback.
 	return (
 		<div className="video">
-			<video controls>
+			<video controls width={media.meta?.width} height={media.meta?.height}>
 				<source src={getVideoURL(media)} type="video/mp4" />
 			</video>
 		</div>
@@ -81,17 +82,22 @@ const Video = ({ media }: { media: Media }) => {
 };
 
 const Keymap = (
-	{ object, className }: { object: Record<string, any>; className?: string },
+	{ title, object, className }: { object: Record<string, any>; className?: string, title?: string },
 ) => {
+	const entries = Object.entries(object || {});
+	if (entries.length === 0) return null;
 	return (
-		<ul className={className}>
-			{Object.entries(object || {}).map(([key, value]) => {
-				return (
-					<li key={key}>
-						<b>{key}:</b> <span>{value}</span>
-					</li>
-				);
-			})}
-		</ul>
+		<>
+			{title ? <h3>{title}</h3> : null}
+			<ul className={className}>
+				{entries.map(([key, value]) => {
+					return (
+						<li key={key}>
+							<b>{key}:</b> <span>{value}</span>
+						</li>
+					);
+				})}
+			</ul>
+		</>
 	);
 };

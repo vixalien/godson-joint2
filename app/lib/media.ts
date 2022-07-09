@@ -1,4 +1,12 @@
-export const CategoryMap = new Map([
+type Category =
+	| "cover_art"
+	| "visualizer"
+	| "teaser"
+	| "lyric-video"
+	| "2d"
+	| "other";
+
+export const CategoryMap = new Map<Category, string>([
 	["cover_art", "Cover Art"],
 	["visualizer", "Visualizer"],
 	["teaser", "Teaser"],
@@ -7,25 +15,30 @@ export const CategoryMap = new Map([
 	["other", "Other Art"],
 ]);
 
+type MediaType = "video" | "image";
+
+export const MediaTypeMap = new Map<MediaType, string>([
+	["image", "Image"],
+	["video", "Video"]
+])
+
+interface MediaMetadata {
+	width: number;
+	height: number;
+	ext: string;
+	src: string;
+}
+
 export interface Media {
 	id: string;
 	name: string;
 	client?: string;
 	description?: string;
-	media_type: "video" | "image";
+	media_type: MediaType;
 	credits: Record<string, string>;
-	category:
-		| "cover_art"
-		| "visualizer"
-		| "teaser"
-		| "lyric-video"
-		| "2d"
-		| "other";
-	src?: string;
-	ext?: string;
+	category: Category;
+	meta?: Partial<MediaMetadata>;
 }
-
-export const a = "";
 
 const BaseCredits = {
 	"Art Director": "Mr. Bakame",
@@ -39,6 +52,10 @@ export const staticMedia: Media[] = [
 		media_type: "image",
 		credits: BaseCredits,
 		category: "cover_art",
+		meta: {
+			width: 1080,
+			height: 1080,
+		}
 	},
 	{
 		id: "ibintu-bijegajega",
@@ -47,6 +64,10 @@ export const staticMedia: Media[] = [
 		media_type: "image",
 		credits: BaseCredits,
 		category: "cover_art",
+		meta: {
+			width: 1000,
+			height: 1000,
+		}
 	},
 	{
 		id: "princess",
@@ -55,6 +76,10 @@ export const staticMedia: Media[] = [
 		media_type: "image",
 		credits: BaseCredits,
 		category: "cover_art",
+		meta: {
+			width: 1080,
+			height: 1080,
+		}
 	},
 	{
 		id: "celebrate",
@@ -63,6 +88,10 @@ export const staticMedia: Media[] = [
 		media_type: "video",
 		credits: BaseCredits,
 		category: "visualizer",
+		meta: {
+			width: 1920,
+			height: 1080,
+		}
 	},
 	{
 		id: "hide-yo-wallet",
@@ -71,6 +100,24 @@ export const staticMedia: Media[] = [
 		media_type: "video",
 		credits: BaseCredits,
 		category: "teaser",
+		meta: {
+			width: 640,
+			height: 640,
+		}
+	},
+	{
+		id: "isekulumein",
+		name: "Isekulumein",
+		client: "Yannick MYK",
+		media_type: "video",
+		credits: {
+			"Director": "Mr Bakame",
+		},
+		category: "visualizer",
+		meta: {
+			width: 1280,
+			height: 720,
+		}
 	},
 	{
 		id: "bakame",
@@ -84,11 +131,23 @@ export const staticMedia: Media[] = [
 			"Voice over": "Yannick MYK",
 		},
 		category: "2d",
+		meta: {
+			width: 640,
+			height: 352,
+		}
 	},
 ];
 
 export const getImageURL = (media: Media) => {
 	return media.media_type === "image"
-		? media.src || `/data/images/${media.id}.${media.ext || "jpg"}`
+		? media.meta?.src || `/data/images/${media.id}.${media.meta?.ext || "jpg"}`
 		: `/data/thumbnails/${media.id}.png`;
+};
+
+export const getMediaTitle = (media: Media) => {
+	return `${media.name} - ${CategoryMap.get(media.category)}`;
+}
+
+export const getVideoURL = (media: Media) => {
+	return media.meta?.src || `/data/videos/${media.id}.${media.meta?.ext || "mp4"}`;
 };
