@@ -6,18 +6,20 @@ import cn from "classnames";
 export const MediaCard = (
   { media, className }: { media: Media; className?: string },
 ) => {
+	const title = getMediaTitle(media)
   return (
     <div className={cn("card", className)}>
       <Link
         className={cn("thumbnail", { video: media.media_type === "video" })}
         to={`/portfolio/${media.id}`}
-				aria-label={getMediaTitle(media)}
+				aria-label={title}
       >
         <img
           className="image"
           src={getImageURL(media)}
           width={media.meta?.width}
           height={media.meta?.height}
+					alt={title}
         />
         <div className="play-icon">
           <Play />

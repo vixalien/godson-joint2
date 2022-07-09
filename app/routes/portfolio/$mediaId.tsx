@@ -33,7 +33,7 @@ export const meta: MetaFunction = ({ data }: { data: Media }) => {
   const title = getMediaTitle(data);
   const image = getImageURL(data);
   return {
-    title: getMediaTitle(data),
+    title: title,
     description: data.description,
     "og:title": title,
     "og:description": data.description,
@@ -47,16 +47,18 @@ export const meta: MetaFunction = ({ data }: { data: Media }) => {
 
 export default function Invoice() {
   const media = useLoaderData<Media>();
+	const title = getMediaTitle(media);
 
   return (
     <>
       <Link className="portfolio-link" to="/portfolio">&larr; Portfolio</Link>
-      <h1>{getMediaTitle(media)}</h1>
+      <h1>{title}</h1>
       <div className="media">
         {media.media_type === "image"
           ? (
             <div className="image">
               <img
+								alt={title}
                 src={getImageURL(media)}
                 width={media.meta?.width}
                 height={media.meta?.height}
@@ -93,9 +95,11 @@ export default function Invoice() {
 }
 
 const Video = ({ media }: { media: Media }) => {
+	const title = getMediaTitle(media);
+
   return (
     <div className="video">
-      <video controls width={media.meta?.width} height={media.meta?.height}>
+      <video controls aria-label={title} width={media.meta?.width} height={media.meta?.height}>
         <source src={getVideoURL(media)} type="video/mp4" />
       </video>
     </div>
