@@ -1,17 +1,15 @@
 import { CategoryMap, getImageURL, Media } from "~/lib/media";
 import { Play } from "~/icons/media";
 import { Link } from "react-router-dom";
-import classNames from "classnames";
+import cn from "classnames";
 
-export const MediaCard = ({ media }: { media: Media }) => {
+export const MediaCard = ({ media, className }: { media: Media, className?: string }) => {
 	return (
-		<div className="card">
-			<Link className="thumbnail" to={`/portfolio/${media.id}`}>
+		<div className={cn("card", className)}>
+			<Link className={cn("thumbnail", { video: media.media_type === "video" })} to={`/portfolio/${media.id}`}>
 				<img className="image" src={getImageURL(media)} />
 				<div
-					className={classNames("play-icon", {
-						visible: media.media_type === "video",
-					})}
+					className="play-icon"
 				>
 					<Play />
 				</div>
@@ -28,5 +26,7 @@ interface GridProps {
 }
 
 export const Grid = ({ items }: GridProps) => {
-	return <div className="grid"></div>;
+	return <div className="grid">
+    {items}
+  </div>;
 };
