@@ -42,7 +42,7 @@ const LatestWork = () => {
 	return (
 		<div className="latest-work">
 			<h2>Latest Work</h2>
-			<MediaCard media={staticMedia[staticMedia.length - 1]} />
+			<MediaCard media={staticMedia[0]} />
 		</div>
 	);
 };

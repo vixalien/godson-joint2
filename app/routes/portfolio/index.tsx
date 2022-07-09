@@ -6,8 +6,6 @@ import { MediaCard, Grid } from "~/components/grid";
 import Font from "~/components/font";
 import Button from "~/components/button";
 
-const reversed = staticMedia.reverse();
-
 export const meta: MetaFunction = () => {
   return {
     title: "Portfolio - Godson Joint"
@@ -34,7 +32,7 @@ const Portfolio = () => {
   return (<div className="portfolio">
     <h1>Portfolio</h1>
     <h2>See some of our exclusive creations.</h2>
-    <Grid items={reversed.map((media, index) => {
+    <Grid items={staticMedia.map((media, index) => {
       return <MediaCard key={media.id} media={media} className={index === 0 ? "latest-work" : undefined} />
     })} />
     <div className="footer">

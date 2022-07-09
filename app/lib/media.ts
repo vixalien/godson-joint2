@@ -46,97 +46,70 @@ const BaseCredits = {
 
 export const staticMedia: Media[] = [
 	{
-		id: "afro-killa",
-		name: "Afro Killa",
-		client: "Yannick MYK",
-		media_type: "image",
-		credits: BaseCredits,
-		category: "cover_art",
-		meta: {
-			width: 1080,
-			height: 1080,
-		}
-	},
-	{
-		id: "ibintu-bijegajega",
-		name: "Ibintu Bijegajega",
-		client: "Loco del Coco",
-		media_type: "image",
-		credits: BaseCredits,
-		category: "cover_art",
-		meta: {
-			width: 1000,
-			height: 1000,
-		}
-	},
-	{
-		id: "princess",
-		name: "Princess",
-		client: "Uplow",
-		media_type: "image",
-		credits: BaseCredits,
-		category: "cover_art",
-		meta: {
-			width: 1080,
-			height: 1080,
-		}
-	},
-	{
-		id: "celebrate",
-		name: "Celebrate",
-		client: "Getts Kent",
+		id: "bakame",
+		name: "Bakame n'Impyisi",
+		client: "Godson Joint",
 		media_type: "video",
-		credits: BaseCredits,
-		category: "visualizer",
-		meta: {
-			width: 1920,
-			height: 1080,
-		}
-	},
-	{
-		id: "hide-yo-wallet",
-		name: "Hide yo Wallet",
-		client: "Getts Kent",
-		media_type: "video",
-		credits: BaseCredits,
-		category: "teaser",
-		meta: {
-			width: 640,
-			height: 640,
-		}
+		description: "A friend turns into a foe in this modernized folk tale.",
+		credits: { Director: "Mr Bakame", Animator: "Iradukunda Yves", "Voice over": "Yannick MYK" },
+		category: "2d",
+		meta: { width: 640, height: 352 }
 	},
 	{
 		id: "isekulumein",
 		name: "Isekulumein",
 		client: "Yannick MYK",
 		media_type: "video",
-		credits: {
-			"Director": "Mr Bakame",
-		},
+		credits: { Director: "Mr Bakame" },
 		category: "visualizer",
-		meta: {
-			width: 1280,
-			height: 720,
-		}
+		meta: { width: 1280, height: 720 }
 	},
 	{
-		id: "bakame",
-		name: "Bakame n'Impyisi",
-		client: "Godson Joint",
+		id: "hide-yo-wallet",
+		name: "Hide yo Wallet",
+		client: "Getts Kent",
 		media_type: "video",
-		description: "A friend turns into a foe in this modernized folk tale.",
-		credits: {
-			"Director": "Mr Bakame",
-			"Animator": "Iradukunda Yves",
-			"Voice over": "Yannick MYK",
-		},
-		category: "2d",
-		meta: {
-			width: 640,
-			height: 352,
-		}
+		credits: { "Art Director": "Mr. Bakame" },
+		category: "teaser",
+		meta: { width: 640, height: 640 }
 	},
-];
+	{
+		id: "celebrate",
+		name: "Celebrate",
+		client: "Getts Kent",
+		media_type: "video",
+		credits: { "Art Director": "Mr. Bakame" },
+		category: "visualizer",
+		meta: { width: 1920, height: 1080 }
+	},
+	{
+		id: "princess",
+		name: "Princess",
+		client: "Uplow",
+		media_type: "image",
+		credits: { "Art Director": "Mr. Bakame" },
+		category: "cover_art",
+		meta: { width: 1080, height: 1080 }
+	},
+	{
+		id: "ibintu-bijegajega",
+		name: "Ibintu Bijegajega",
+		client: "Loco del Coco",
+		media_type: "image",
+		credits: { "Art Director": "Mr. Bakame" },
+		category: "cover_art",
+		meta: { width: 1000, height: 1000 }
+	},
+	{
+		id: "afro-killa",
+		name: "Afro Killa",
+		client: "Yannick MYK",
+		media_type: "image",
+		credits: { "Art Director": "Mr. Bakame" },
+		category: "cover_art",
+		meta: { width: 1080, height: 1080 }
+	}
+]
 
 export const getImageURL = (media: Media) => {
 	return media.media_type === "image"
