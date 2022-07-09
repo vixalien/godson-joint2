@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from "react";
+import { useMemo, useEffect, Fragment } from "react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
 	Links,
@@ -9,6 +9,7 @@ import {
 	ScrollRestoration,
 	useTransition,
 	useFetchers,
+	useMatches,
 } from "@remix-run/react";
 
 import NProgress from "nprogress";
@@ -30,7 +31,7 @@ export const links: LinksFunction = () => {
 	];
 };
 
-const Page = ({ children, links }: { children: any, links?: any }) => {
+const Page = ({ children, links, suffix }: { children: any, links?: any, suffix?: any[] }) => {
 	return (
 		<html lang="en">
 			<head>
@@ -46,12 +47,19 @@ const Page = ({ children, links }: { children: any, links?: any }) => {
 				<ScrollRestoration />
 				<Scripts />
 				<LiveReload />
+				{suffix?.map((item, id) => <Fragment key={id}>{item}</Fragment>)}
 			</body>
 		</html>
 	)
 }
 
 export default function App() {
+	const matches = useMatches();
+
+	const links = matches.reduce((prev: any[], curr) => {
+		return curr?.handle?.suffix ? [...prev, curr.handle?.suffix] : prev
+	}, [])
+
 	let transition = useTransition();
 
 	let fetchers = useFetchers();
@@ -88,7 +96,11 @@ export default function App() {
 
 
 	return (
-		<Page><Outlet /></Page>
+		<Page
+			suffix={links}
+		>
+			<Outlet />
+		</Page>
 	);
 }
 
@@ -97,7 +109,7 @@ export function CatchBoundary() {
 		<Page
 			links={<link rel="stylesheet" href="/css/pages/404.css" />}
 		>
-			<NotFound/>
+			<NotFound />
 		</Page>
 	);
 }

@@ -6,8 +6,12 @@ import { MediaCard } from "~/components/grid";
 
 export const links: LinksFunction = () => {
 	return [
-		{ rel: "stylesheet", href: "/css/pages/home.css" }
+		{ rel: "stylesheet", href: "/css/pages/home.css" },
 	]
+}
+
+export const handle = {
+	suffix: <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap"/>
 }
 
 const Welcome = () => {
